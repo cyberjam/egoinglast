@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Header } from "./Header";
 import { Link, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Nav() {
   return (
@@ -33,6 +34,21 @@ function Welcome() {
   );
 }
 function App() {
+  //1 useEffect 이용, 1번만
+  //2 fetch 이용
+  // topics state 갱신
+  const [topics, setTopics] = useState();
+
+  async function refresh() {
+    const resp = await fetch("http://localhost:3333/topics");
+    const data = await resp.json();
+    setTopics(data);
+  }
+  useEffect(() => {
+    refresh();
+  }, []);
+  console.log(`topics:`);
+  console.log(topics);
   return (
     <div>
       <Header></Header>Hi
