@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Header } from "./Header";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 
 function Nav() {
   return (
@@ -37,8 +37,10 @@ function App() {
     <div>
       <Header></Header>Hi
       <Nav></Nav>
-      <Welcome></Welcome>
-      <Read></Read>
+      <Routes>
+        <Route path="/" element={<Welcome></Welcome>}></Route>
+        <Route path="/read/1" element={<Read></Read>}></Route>
+      </Routes>
     </div>
   );
 }
