@@ -14,10 +14,21 @@ function Nav() {
     </nav>
   );
 }
+
+function Welcome() {
+  return (
+    <article>
+      <h2>Welcome</h2>
+      Hello, Web
+    </article>
+  );
+}
 function App() {
   return (
     <div>
       <Header></Header>Hi
+      <Nav></Nav>
+      <Welcome></Welcome>
     </div>
   );
 }
