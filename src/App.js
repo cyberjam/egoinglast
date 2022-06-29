@@ -15,6 +15,15 @@ function Nav() {
   );
 }
 
+function Read() {
+  return (
+    <article>
+      <h2>Read</h2>
+      Hello, Read
+    </article>
+  );
+}
+
 function Welcome() {
   return (
     <article>
@@ -29,6 +38,7 @@ function App() {
       <Header></Header>Hi
       <Nav></Nav>
       <Welcome></Welcome>
+      <Read></Read>
     </div>
   );
 }
