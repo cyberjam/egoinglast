@@ -4,13 +4,15 @@ import { Header } from "./Header";
 import { Link, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-function Nav() {
+function Nav(props) {
   return (
     <nav>
       <ol>
-        <li>
-          <Link to="/read/1">html</Link>
-        </li>
+        {props.data.map((e) => (
+          <li key={e.id}>
+            <Link to={`/read/${e.id}`}>{e.title}</Link>
+          </li>
+        ))}
       </ol>
     </nav>
   );
@@ -52,7 +54,7 @@ function App() {
   return (
     <div>
       <Header></Header>Hi
-      <Nav></Nav>
+      <Nav data={topics}></Nav>
       <Routes>
         <Route path="/" element={<Welcome></Welcome>}></Route>
         <Route path="/read/1" element={<Read></Read>}></Route>
